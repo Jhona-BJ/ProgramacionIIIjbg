@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Fibo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Programa que desarrolla la serie de Fibonacci hasta un número dado
+            int a,b,n,i,aux; //declaramos las variables, aux me sirve para hacer cambios
+            Console.WriteLine("¿Cuantos números ibonacci quieres?");
+            n = int.Parse(Console.ReadLine()); //leemos el número de términos
+            a = 0;
+            b = 1; //inicializamos
+            for (i = 0; i < n; i++)  //se repite para el número de veces deseado
+            {
+                aux = a;
+                a = b; //intercambio valores
+                b = aux + a; //cailculo el nuevo valor
+                Console.WriteLine(a); //imprimo el valor
+            }
+            Console.ReadKey(); //para ue se quede esperando a que presione una tecla
+
+        }
+    }
+}
