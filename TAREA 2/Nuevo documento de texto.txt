@@ -1,0 +1,91 @@
+  
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace MetodosGenericos
+{
+    /// <summary>
+    /// Métodos Genéricos
+    /// </summary>
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // crear un arreglo de int, double y char
+            int n = 0, m = 0; //variables enteras
+            int[] nums = { 2, 1, 5, 4, 3, 6 };
+            double l = 0, k = 0;//variables reales
+            double[] nums2 = { 2.2, 1.1, 4.4, 3.3, 5.5, 7.7, 6.6 };
+
+            char[] charA = { 'H', 'Y', 'U', 'O', 'L', 'A' };
+            Console.WriteLine("nums  contiene:");
+            //ordenamos mediante el  metodo burbuja 
+            for (int x = 1; x < 6; x++)
+            {
+                for (int y = 0; y < 6 - 1; y++)
+                {
+                    //odenamos de menor a mayor
+                    if (nums[x] < nums[y])
+                    {
+                        m = nums[x];
+                        nums[x] = nums[y];
+                        nums[y] = m;
+                    }
+
+                }
+
+            }
+            for (int r = 0; r < n; r++)
+                Console.WriteLine("{0},-{0}", r + 1, nums[r]);
+
+            MuestraArreglo(nums);
+            //variables reales
+
+            Console.WriteLine("nums2 reales contiene:");
+            for (int x = 1; x < 6; x++)
+            {
+                for (int y = 0; y < 6 - 1; y++)
+                {
+                    //odenamos de menor a mayor
+                    if (nums2[x] < nums2[y])
+                    {
+                        l = nums2[x];
+                        nums2[x] = nums2[y];
+                        nums2[y] = l;
+                    }
+
+                }
+
+            }
+            for (int s = 0; s < k; s++)
+                Console.WriteLine("{0},-{0}", s + 1, nums2[s]);
+            MuestraArreglo(nums2);
+
+            // Ordenar alfabeticamente el arrelgo 
+
+            Console.WriteLine("charA contiene:");
+            //Calcular el tamaño del array
+            int length = charA.Length;
+            //Ordenar el arreglo Ascendentemente
+            Array.Sort(charA);
+
+            for (int i = 0; i < length; i++)
+            {
+                Console.WriteLine(charA[i]);
+            }
+
+            MuestraArreglo(charA);
+            Console.ReadKey();
+        }
+        // método genérico para mostrar un arreglo
+        private static void MuestraArreglo<T>(T[] arreglo)
+        {
+            foreach (T elemento in arreglo)
+                Console.Write(elemento + " ");
+            Console.WriteLine("\n");
+
+        }
+    }
+}
